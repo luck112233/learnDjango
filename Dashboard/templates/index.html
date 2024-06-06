@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#<h1>图片</h1>#}
+{#<img src="{% static 'img/django安装1.png' %}" alt="">#}
+
+{#<h1>拿到字段</h1>#}
+{#<div>{{ name }}</div>#}
+{#<div>{{ role_list.0 }}</div>#}
+{#<div>{{ user_info_dict.age }}</div>#}
+{#<h1>拿到列表</h1>#}
+{#<div>#}
+{#    {% for item in role_list %}#}
+{#        <span>{{ item }}</span>#}
+{#    {% endfor %}#}
+{#</div>#}
+{#<h1>拿到字典</h1>#}
+{#<div>#}
+{#    {% for k, v in user_info_dict.items %}#}
+{#        <li>{{ k }} = {{ v }}</li>#}
+{#    {% endfor %}#}
+{#</div>#}
+
+{#<form name="myForm" action="demo.form.php" method="post">#}
+{#    名字：<input type="text" name ="f_name" required="required">#}
+{#    <input type="submit" value="提交">#}
+{#</form>#}
+
+<script>
+function Main(name){
+    var x = document.forms["myForm"]["f_name"].value
+    if(x == null || x === ""){
+        alert("需要输入名字")
+        return false
+    }
+}
+</script>
+</body>
+</html>
