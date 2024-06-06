@@ -21,5 +21,9 @@ from Dashboard import views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('index/', views.index),
+    path('learn_html/', views.learn_html),
+    path('learn_css/', views.learn_css),
+    path('learn_js/', views.learn_js),
+    path('learn_bootstrap/', views.learn_bootstrap),
     path('login/', views.login),
 ]

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*body标签去掉留白*/
+        body{
+            margin: 0;
+        }
+        /*类选择器*/
+        .header{
+            /*颜色*/
+            color: red !important;
+            /*字体大小*/
+            font-size: 28px;
+            /*字体加粗*/
+            font-weight: 400;
+            /*字体*/
+            font-family: "Microsoft YaHei";
+            /*高度，不可用百分比*/
+            height: 300px;
+            /*宽度，支持百分比*/
+            /*对于行内标签无效，对块级标签有效*/
+            /*但是过于霸道，即使有空白也不给后面占用*/
+            width: 500px;
+            /*水平方向居中*/
+            text-align: center;
+            /*垂直方向居中（以300的高度居中）*/
+            line-height: 300px;
+            /*综合行内和块级标签的特性，既可以占一块区域又不至于占用一整行*/
+            display: inline-block;
+            /*边框*/
+            border: 1px solid red;
+            /*左边的边框显示绿色*/
+            border-left: 3px solid #00ff7f;
+            /*左边的边框透明*/
+            border-left: 3px solid transparent;
+            /*上下左右都设置内间距20*/
+            padding: 20px;
+            /*去掉超链接的下划线*/
+            text-decoration: none;
+            /*透明度*/
+            opacity: 0.7;
+            /*relative和absolute成对出现*/
+            /*设置子对象相对于父对象的位置*/
+            position: relative;
+
+        }
+        .container{
+            width: 1226px;
+            /*在设置了宽度的情况下，自动区域居中*/
+            margin: 0 auto;
+        }
+        .header .menu{
+            float: left;
+            width: 50%;
+            /*主动指定为块级标签*/
+            display: block;
+            /*上边距设置20*/
+            padding-top: 20px;
+            /*外边距20（我距离别人）*/
+            margin-top: 20px;
+            /*relative和absolute成对出现*/
+            /*设置子对象相对于父对象的位置*/
+            position: absolute;
+        }
+        .header .account{
+            /*浮动，默认在左边，可以指定为右边*/
+            /*块级标签使用float也可以自己多大就占多大不会占一整行*/
+            /*但是会脱离文档流，后面一个标签一定要加clear: both;*/
+            float: right;
+            /*主动指定为行内标签*/
+            display: inline;
+            /*上右下左边距*/
+            padding: 20px 10px 5px 20px;
+        }
+        /*hover是鼠标放上去的样式*/
+        /*display: none;代表不显示*/
+        /*after代表在尾部额外显示的内容*/
+        .c1:after{
+            color: green;
+            display: none;
+        }
+        .c1:hover{
+            color: red;
+        }
+        /*fixed永远固定某个位置*/
+        .back{
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border: 1px solid red;
+            right: 10px;
+        }
+        /*id选择器*/
+        #c3{
+            color: green;
+        }
+        /*标签选择器*/
+        li{
+            color: blueviolet;
+        }
+        /*属性选择器*/
+        input[type="text"]{
+            border: 1px solid red;
+        }
+        .v1[xx="1"]{
+            color: red;
+        }
+        /*后代选择器(递归所有子对象)*/
+        .yy li{
+            color: pink;
+        }
+        /*后代选择器(只找子对象)*/
+        .yy > a{
+            color: pink;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/commons.css">
+</head>
+<body>
+    <h1 style="color: red">直接在标签上使用style</h1>
+    <!-- 先在head里提前定义好style -->
+    <!-- 然后用class引用 -->
+    <!-- 如果用多个样式就以style里从上往下合并，同名的用下面的 -->
+    <!-- 上面的使用!important则强制使用上面的 -->
+    <h1 class="header c1">标题</h1>
+    <!-- 先在static文件夹里新建样式表（commons.css） -->
+    <!-- 然后在head里用link引用 -->
+    <!-- 然后用class引用 -->
+    <h1 class="c2">标题</h1>
+    <h1 id="c3">id选择器</h1>
+    <!-- 属性选择器 -->
+    <input type="text" name="user" />
+    <!-- 后代选择器 -->
+    <div class="v1" xx="1">aaa</div>
+    <div class="yy">
+        <ul>
+            <li>欧美</li>
+            <li>日韩</li>
+        </ul>
+        <a>谷歌</a>
+        <div>
+            <a>谷歌</a>
+        </div>
+    </div>
+    <div class="header">
+        <div class="container">
+            <div class="menu">左边</div>
+            <div class="account">右边</div>
+            <!-- 父标签没有高度或者宽度，可以撑起来 -->
+            <div style="clear: both"></div>
+        </div>
+    </div>
+</body>
+</html>

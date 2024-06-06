@@ -29,6 +29,22 @@ def index(req):
     return render(req, "index.html", {"name": "v_hlhllu", "role_list": role_list, "user_info_dict": user_info_dict})
 
 
+def learn_html(req):
+    return render(req, "LearnHtml.html")
+
+
+def learn_css(req):
+    return render(req, "LearnCSS.html")
+
+
+def learn_js(req):
+    return render(req, "LearnJS.html")
+
+
+def learn_bootstrap(req):
+    return render(req, "learnBootstrap.html")
+
+
 def login(req):
     # url打开是get请求
     if req.method == "GET":
