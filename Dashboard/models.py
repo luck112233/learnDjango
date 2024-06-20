@@ -1,25 +1,41 @@
 from django.db import models
 
 
-# 自动生成sql语句
-# app名_类名小写
-"""
-create table dashboard_userinfo(
-    id bigint auto_increment primary key,
-    name varchar(32),
-    password varchar(64),
-    age int
-)
-"""
-
-
 class UserInfo(models.Model):
+    # 自动生成sql语句（app名_类名小写）
+    # create table dashboard_userinfo(
+    #     id bigint auto_increment primary key,
+    #     name varchar(32),
+    #     password varchar(64),
+    #     age int
+    # )
     name = models.CharField(max_length=32)
     password = models.CharField(max_length=64)
     age = models.IntegerField()
+    # 有默认值
+    # size = models.IntegerField(default=30)
+    # 可以为空
+    # data = models.IntegerField(null=True, blank=True)
 
-    # class Department(models.Model):
-    #     title = models.CharField(verbose_name="标题", max_length=32)
+# 新建数据
+# UserInfo.objects.create(name="v_hlhllu", password="123456", age="30")
+
+# 删除数据
+# row_obj = UserInfo.objects.filter(id=1).first()
+# print(row_obj.id, row_obj.name)
+# row_obj.delete()
+# data_list = UserInfo.objects.all()
+# for data in data_list:
+#     print(data.id, data.name, data.password, data.age)
+# data_list.delete()
+
+# 更新数据
+# UserInfo.objects.all().update(age=18)
+# UserInfo.objects.filter(name="v_hlhllu").update(age=18)
+
+# class Department(models.Model):
+#     title = models.CharField(verbose_name="标题", max_length=32)
+
     # 无约束的
     # depart_id = models.BigIntegerField(verbose_name="部门ID")
     # 有约束的, -to:与哪张表关联，-to_filed:与表中的哪一列关联
@@ -38,18 +54,4 @@ class UserInfo(models.Model):
     # )
     # gender = models.SmallIntegerField(verbose_name="性别", choices=gender_choices)
 
-# 新建数据
-# UserInfo.objects.create(name="v_hlhllu", password="123456", age="30")
 
-# 删除数据
-# row_obj = UserInfo.objects.filter(id=1).first()
-# print(row_obj.id, row_obj.name)
-# row_obj.delete()
-# data_list = UserInfo.objects.all()
-# for data in data_list:
-#     print(data.id, data.name, data.password, data.age)
-# data_list.delete()
-
-# 更新数据
-# UserInfo.objects.all().update(age=18)
-# UserInfo.objects.filter(name="v_hlhllu").update(age=18)
