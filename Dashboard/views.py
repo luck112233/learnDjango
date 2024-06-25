@@ -20,19 +20,33 @@ def login(req):
         user_name = req.POST.get("user")
         pwd = req.POST.get("pwd")
         age = req.POST.get("age")
-        print(user_name, pwd, age)
         UserInfo.objects.create(name=user_name, password=pwd, age=age)
         return redirect("/user/list")
 
 
 def user_list(req):
+    # 获取所有数据
     data_list = UserInfo.objects.all()
+    # 获取第一条数据
+    # data_obj = UserInfo.objects.filter(id=1).first()
     return render(req, "user_list.html", {"data_list": data_list})
 
 
 def user_delete(req):
     nid = req.GET.get("nid")
+    # 删除指定数据
     UserInfo.objects.filter(id=nid).delete()
+    # 删除所有数据
+    # UserInfo.objects.all().delete()
+    return redirect("/user/list")
+
+
+def user_change(req):
+    nid = req.GET.get("nid")
+    # 修改指定数据
+    UserInfo.objects.filter(id=nid).update(age=100)
+    # 修改所有数据
+    # UserInfo.objects.all().update(age=100)
     return redirect("/user/list")
 
 
@@ -50,7 +64,3 @@ def learn_js(req):
 
 def learn_bootstrap(req):
     return render(req, "learnBootstrap.html")
-
-
-
-

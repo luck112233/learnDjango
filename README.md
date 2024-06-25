@@ -35,6 +35,8 @@ c:\Python311
 
 - 一个项目可有多个app，比如网站，后台管理，API，每个APP有独立的表结构，函数，模板，CSS
 - 终端:python manage.py startapp Dashboard
+- 或者用pycharm工具
+![Alt text](/Dashboard/static/img/Django/django安装13.png)
 
 ```{.py}
 # 目录结构
