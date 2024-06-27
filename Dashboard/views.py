@@ -50,6 +50,14 @@ def user_change(req):
     return redirect("/user/list")
 
 
+def depart_list(req):
+    # 获取所有数据
+    data_list = UserInfo.objects.all()
+    # 获取第一条数据
+    # data_obj = UserInfo.objects.filter(id=1).first()
+    return render(req, "depart_list.html", {"data_list": data_list})
+
+
 def learn_html(req):
     return render(req, "LearnHtml.html")
 

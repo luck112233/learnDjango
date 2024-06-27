@@ -112,11 +112,14 @@ python manage.py migrate
 ## [Bootstrap](https://v3.bootcss.com/)
 
 - 定义: 别人写好的css
-- 下载安装
 ![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装1.png)
 ![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装2.png)
+- 下载解压并拷贝到plugins文件夹
 ![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装3.png)
+- 选中元素copy到html文件里
 ![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装4.png)
+- copy代码到html文件里
+![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装9.png)
 
 ## [fontawesome](https://fontawesome.dashgame.com/)
 
@@ -127,7 +130,8 @@ python manage.py migrate
 
 ## [jQuery](https://jquery.com/)
 
-- 定义：Bootstrap依赖jQuery，动态效果
-- 下载安装
+- 定义：Bootstrap依赖jQuery，有动态效果
+- 下载到指定目录并在代码中引用
 ![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装7.png)
 ![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装8.png)
+![Alt text](/Dashboard/static/img/Bootstrap/Bootstrap安装10.png)

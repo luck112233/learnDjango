@@ -25,6 +25,7 @@ urlpatterns = [
     path('user/list/', views.user_list),
     path('user/delete/', views.user_delete),
     path('user/change/', views.user_change),
+    path('depart/list/', views.depart_list),
     path('learn_html/', views.learn_html),
     path('learn_css/', views.learn_css),
     path('learn_js/', views.learn_js),
