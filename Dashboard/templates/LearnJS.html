@@ -1,20 +1,160 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .menus{
+            width: 200px;
+            border: 1px solid gold;
+        }
+    </style>
 </head>
 <body>
-<button type="button" onclick="Main()">测试</button>
+<!-- 浏览器是JavaScripts的解释器 -->
+<!-- DOM和BOM相当于内置模块类似re, json, time -->
+<!-- jQuery相当于第三方模块类似requests -->
+<!-- 导入js推荐放到body最后面，因为可能会很慢需要先显示界面 -->
+<!--onclick:单击 ondblclick:双击 -->
+{#<input id="txtUser" type="text" placeholder="请输入内容" />#}
+{#<button type="button" onclick="Main()">测试</button>#}
+{#<!-- 方式一 -->#}
+{#<script type="text/javascript">#}
+{#    function Main(){#}
+{#        let txt_tag = document.getElementById("txtUser")#}
+{#        // 会输出在网页上的控制台#}
+{#        console.log(txt_tag.value)#}
+{#        alert(txt_tag.value)#}
+{#    }#}
+{#</script>#}
+<!-- 方式二 -->
+{#<script type="text/javascript" src="{% static 'js/Main.js' %}"></script>#}
 
-<script>
-function Main(){
-    if(isNaN("1")){
-        alert("数字")
-    }else{
-        alert("非数字")
+<!-- 跑马灯 -->
+<!-- 获取输入的内容用value，获取标签内容用innerText -->
+{#<span id="txt">欢迎光临</span>#}
+{#<script type="text/javascript">#}
+{#    function show(){#}
+{#        let tag = document.getElementById("txt")#}
+{#        let data_str = tag.innerText#}
+{#        let first_char = data_str[0]#}
+{#        let other_str = data_str.substring(1, data_str.length)#}
+{#        let new_str = other_str + first_char#}
+{#        tag.innerText = new_str#}
+{#    }#}
+{#    setInterval(show, 1000)#}
+{#</script>#}
+
+<!-- js创建标签 -->
+{#<ul id="city"></ul>#}
+{#<table>#}
+{#    <thead>#}
+{#        <tr>#}
+{#            <th>ID</th>#}
+{#            <th>姓名</th>#}
+{#            <th>年龄</th>#}
+{#        </tr>#}
+{#    </thead>#}
+{#    <tbody id="body">#}
+{#    </tbody>#}
+{#</table>#}
+{#<script type="text/javascript">#}
+{#    let city_list = ["北京", "上海", "广州", "深圳"]#}
+{#    let parent_tag = document.getElementById("city")#}
+{#    for (let idx in city_list){#}
+{#        let cur_city = city_list[idx]#}
+{#        let tag = document.createElement("li")#}
+{#        tag.innerText = cur_city#}
+{#        parent_tag.appendChild(tag)#}
+{#    }#}
+{#    let dataList = [#}
+{#        {id:1, name: "v_hlhllu", age: 30},#}
+{#        {id:2, name: "lucklu", age: 30},#}
+{#    ]#}
+{#    let bodyTag = document.getElementById("body")#}
+{#    for (let idx in dataList){#}
+{#        let info = dataList[idx]#}
+{#        let tr = document.createElement("tr")#}
+{#        for (let key in info) {#}
+{#            let text = info[key]#}
+{#            let td = document.createElement("td")#}
+{#            td.innerText = text#}
+{#            tr.appendChild(td)#}
+{#        }#}
+{#        bodyTag.appendChild(tr)#}
+{#    }#}
+{#</script>#}
+
+<!-- jquery用法 -->
+{#<button type="button">样式</button>#}
+{#<button class="menus" type="button" onclick="clickMy(this)">修改样式</button>#}
+{#<script type="text/javascript">#}
+{#    function clickMy(self){#}
+{#        $(self).prev().addClass("menus")#}
+{#        let hasHide = $(self).hasClass("menus")#}
+{#        if (hasHide){#}
+{#            $(self).removeClass("menus")#}
+{#        }else {#}
+{#            $(self).addClass("menus")#}
+{#        }#}
+{#    }#}
+{#</script>#}
+
+<h1 id="name" class="name">v_hlhllu</h1>
+<button type="button" onclick="ChangeText()">修改文本</button>
+<script type="text/javascript">
+    function ChangeText(){
+        {#样式选择器#}
+        {#let name = $("h1")#}
+        {#ID选择器#}
+        let name = $("#name")
+        {#标签选择器#}
+        {#let name = $(".name")#}
+        console.log(name.text())
+        name.text("lucklu")
+        // 获取输入的内容
+        //$("#name").val()
+        // 设置输入的内容
+        //$("#name").val("值")
+        // 层级选择器
+        //$(".c1 .c2 a")
+        // 多选择器
+        //$("#c1, #c2")
+        // 属性选择器
+        //$("input[name='n1']")
+        // 间接寻找-上一个
+        //$("#name").prev()
+        // 间接寻找-下一个
+        //$("#name").next().next()
+        // 间接寻找-所有
+        //$("#name").siblings()
+        // 间接寻找-父子
+        //$("#name").parent()
+        // 寻找所有的子对象
+        //$("#name").children()
+        // 寻找直接子对象中class=p1的对象
+        //$("#name").children(".p1")
+        // 寻找所有子对象中class=p1的对象
+        //$("#name").find(".p1")
+        // 创建li标签
+        //let nameLi = $("<li>").text("name")
+        // 把li添加到viwe里
+        //$("#viwe").append(nameLi)
+        //点击li标签执行改函数
+        //$("li").click(function (){
+        //    console.log($(this).text())
+        //    // 删除标签
+        //    $(this).remove()
+        //})
     }
-}
 </script>
+<script>
+    $(function (){
+        //当页面框架加载完成后自动执行，不必等所有图片或者数据加载完成
+    })
+</script>
+
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
 </body>
 </html>

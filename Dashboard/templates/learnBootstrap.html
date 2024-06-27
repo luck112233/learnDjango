@@ -1,23 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <!--  开发版本  -->
-    <link rel="stylesheet" href="/static/plugins/bootstrap-3.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.css' %}">
     <!--  生产版本（因为减去了空格所以小）  -->
     <!--    <link rel="stylesheet" href="/static/plugins/bootstrap-3.4.1/css/bootstrap.min.css">-->
 
     <!--  开发版本  -->
-    <link rel="stylesheet" href="/static/plugins/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.css' %}">
     <!--  生产版本（因为减去了空格所以小）  -->
     <!--     <link rel="stylesheet" href="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css.css">-->
-    <style>
-        .menus{
-            width: 200px;
-            border: 1px solid gold;
-        }
-    </style>
 </head>
 <body>
     <!-- 图片 -->
@@ -25,117 +20,10 @@
         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
         <i class="fa fa-bath" aria-hidden="true"></i>
     </div>
-    <!-- 注册一个按钮点击 -->
-    <!-- 不推荐放到head里面因为会默认执行一次 -->
-    <!-- 第一种方式是直接写到页面里，第二种方式是导入js文件 -->
-    <!--onclick:单击 ondblclick:双击 -->
-    <!-- 获取输入的内容用value，获取标签内容用innerText -->
-    <input type="text" placeholder="请输入内容" id="txtUser" />
-    <div class="menus" onclick="myFunc()">点击测试</div>
-    <div class="menus" onclick="clickMy(this)">点击测试</div>
-    <script type="text/javascript">
-        function myFunc(){
-            var name = "luck"
-            // 会输出在网页上的控制台
-            console.log(name)
-            var txt_tag = document.getElementById("txtUser")
-            alert("弹框" + name + txt_tag.value)
-        }
-        function clickMy(self){
-            var hasHide = $(self).hasClass("hide")
-            if (hasHide){
-                // 移除样式
-                $(self).prev().removeClass("menu")
-            }else {
-                // 添加样式
-            $(self).prev().addClass("menu")
-            }
-        }
-    </script>
-
-    <!-- 跑马灯 -->
-    <span id="txt">欢迎光临</span>
-    <script type="text/javascript">
-        function show(){
-            var tag = document.getElementById("txt")
-            var data_str = tag.innerText
-            var first_char = data_str[0]
-            var other_str = data_str.substring(1, data_str.length)
-            var new_str = other_str + first_char
-            tag.innerText = new_str
-        }
-        setInterval(show, 1000)
-    </script>
-
-    <!-- js创建标签 -->
-    <ul id="city"></ul>
-    <script type="text/javascript">
-        var city_list = ["北京", "上海", "广州", "深圳"]
-        for (var idx in city_list){
-            var cur_city = city_list[idx]
-            var tag = document.createElement("li")
-            tag.innerText = cur_city
-            var parent_tag = document.getElementById("city")
-            parent_tag.appendChild(tag)
-        }
-    </script>
 
     <!-- 引用js的第三方库给bootstrap用 -->
     <!-- 先引用jquery再引用bootstrap -->
-    <script src="/static/js/jquery-3.7.1.min.js"></script>
-    <script src="/static/plugins/bootstrap-3.4.1/js/bootstrap.min.js"></script>
-
-    <h1 id="name">欢迎光临</h1>
-    <script type="text/javascript">
-        // id选择器
-        $("#name").text("中国移动")
-        // 设置内容
-        $("#name").text("中国移动")
-        // 获取内容
-        $("#name").text()
-        // 获取输入的内容
-        $("#name").val()
-        // 设置输入的内容
-        $("#name").val("值")
-        // 样式选择器
-        $(".name")
-        // 标签选择器
-        $("h1")
-        // 层级选择器
-        $(".c1 .c2 a")
-        // 多选择器
-        $("#c1, #c2")
-        // 属性选择器
-        $("input[name='n1']")
-        // 间接寻找-上一个
-        $("#name").prev()
-        // 间接寻找-下一个
-        $("#name").next().next()
-        // 间接寻找-所有
-        $("#name").siblings()
-        // 间接寻找-父子
-        $("#name").parent()
-        // 寻找所有的子对象
-        $("#name").children()
-        // 寻找直接子对象中class=p1的对象
-        $("#name").children(".p1")
-        // 寻找所有子对象中class=p1的对象
-        $("#name").find(".p1")
-        // 创建li标签
-        var nameLi = $("<li>").text("name")
-        // 把li添加到viwe里
-        $("#viwe").append(nameLi)
-        //点击li标签执行改函数
-        $("li").click(function (){
-            console.log($(this).text())
-            // 删除标签
-            $(this).remove()
-        })
-    </script>
-    <script>
-        $(function (){
-            //当页面框架加载完成后自动执行，不必等所有图片或者数据加载完成
-        })
-    </script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
 </body>
 </html>
